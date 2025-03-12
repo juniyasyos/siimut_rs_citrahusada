@@ -3222,23 +3222,23 @@
         },
         {
             "name": "juniyasyos/filament-pwa-kaido",
-            "version": "v1.2.3",
+            "version": "v1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/juniyasyos/filament-pwa-kaido.git",
-                "reference": "e97bba6b4013352c90873cf7eb0878c071053403"
+                "reference": "da585654ebe94c20296dd697f30822ab71faa2e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juniyasyos/filament-pwa-kaido/zipball/e97bba6b4013352c90873cf7eb0878c071053403",
-                "reference": "e97bba6b4013352c90873cf7eb0878c071053403",
+                "url": "https://api.github.com/repos/juniyasyos/filament-pwa-kaido/zipball/da585654ebe94c20296dd697f30822ab71faa2e2",
+                "reference": "da585654ebe94c20296dd697f30822ab71faa2e2",
                 "shasum": ""
             },
             "require": {
                 "filament/filament": "^3.2",
                 "filament/notifications": "^3.2",
                 "filament/spatie-laravel-settings-plugin": "^3.2",
-                "juniyasyos/filament-settings-hub-kaido": "^2.0",
+                "juniyasyos/filament-settings-hub-kaido": "^2.1",
                 "php": "^8.1|^8.2",
                 "tomatophp/console-helpers": "^1.1"
             },
@@ -3277,7 +3277,7 @@
             ],
             "support": {
                 "issues": "https://github.com/juniyasyos/filament-pwa-kaido/issues",
-                "source": "https://github.com/juniyasyos/filament-pwa-kaido/tree/v1.2.3"
+                "source": "https://github.com/juniyasyos/filament-pwa-kaido/tree/v1.2.5"
             },
             "funding": [
                 {
@@ -3285,20 +3285,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-12T10:46:33+00:00"
+            "time": "2025-03-12T11:44:58+00:00"
         },
         {
             "name": "juniyasyos/filament-settings-hub-kaido",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub.git",
-                "reference": "0ae8d70ee09b9cf28ec07c7fdaadacc954986dc6"
+                "reference": "2a170306239d344e0ca3c7fd76f1abb739c50fd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juniyasyos/juniyasyos-filament-settings-hub/zipball/0ae8d70ee09b9cf28ec07c7fdaadacc954986dc6",
-                "reference": "0ae8d70ee09b9cf28ec07c7fdaadacc954986dc6",
+                "url": "https://api.github.com/repos/juniyasyos/juniyasyos-filament-settings-hub/zipball/2a170306239d344e0ca3c7fd76f1abb739c50fd0",
+                "reference": "2a170306239d344e0ca3c7fd76f1abb739c50fd0",
                 "shasum": ""
             },
             "require": {
@@ -3345,7 +3345,7 @@
             ],
             "support": {
                 "issues": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub/issues",
-                "source": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub/tree/v2.0.0"
+                "source": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub/tree/v2.1.0"
             },
             "funding": [
                 {
@@ -3357,7 +3357,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-11T09:36:33+00:00"
+            "time": "2025-03-12T03:33:31+00:00"
         },
         {
             "name": "kenepa/translation-manager",
