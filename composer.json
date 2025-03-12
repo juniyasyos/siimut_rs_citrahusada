@@ -21,7 +21,7 @@
         "filament/spatie-laravel-media-library-plugin": "^3.2",
         "filament/spatie-laravel-settings-plugin": "^3.2",
         "filament/spatie-laravel-translatable-plugin": "^3.2",
-        "hasnayeen/themes": "*",
+        "hasnayeen/themes": "v3.0.23",
         "jeffgreco13/filament-breezy": "^2.4",
         "joshembling/image-optimizer": "^1.4",
         "juniyasyos/filament-pwa-kaido": "^1.0",
