@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Database\Seeders\OrganizationStructureSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,11 +24,7 @@ class DatabaseSeeder extends Seeder
         //call BookSeeder
         $this->call(
             [
-                BookSeeder::class,
-                PostSeeder::class,
-                ContactSeeder::class,
                 ShieldSeeder::class,
-                OrganizationStructureSeeder::class
             ]
         );
     }

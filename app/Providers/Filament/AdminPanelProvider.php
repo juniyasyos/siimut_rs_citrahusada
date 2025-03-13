@@ -33,7 +33,9 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Laravel\Socialite\Contracts\User as SocialiteUserContract;
+use Juniyasyos\FilamentMediaManager\FilamentMediaManagerPlugin;
 use DutchCodingCompany\FilamentSocialite\FilamentSocialitePlugin;
+use Juniyasyos\FilamentLaravelBackup\FilamentLaravelBackupPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -116,7 +118,9 @@ class AdminPanelProvider extends PanelProvider
                 ->label('Audit & Activity Logs'),
 
             FilamentShieldPlugin::make(),
+            FilamentLaravelBackupPlugin::make(),
             FilamentPWAPlugin::make(),
+            FilamentMediaManagerPlugin::make(),
             // ApiServicePlugin::make(),
             BreezyCore::make()
                 ->myProfile(
