@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\RoleResource;
 use Filament\Pages;
 use Filament\Panel;
 use App\Models\User;
@@ -11,7 +12,9 @@ use App\Filament\Pages\Login;
 use App\Settings\KaidoSetting;
 use Filament\Support\Colors\Color;
 use Hasnayeen\Themes\ThemesPlugin;
+use Filament\Support\Enums\MaxWidth;
 use Illuminate\Support\Facades\Schema;
+use App\Filament\Resources\UserResource;
 use Filament\Forms\Components\FileUpload;
 use Rupadana\ApiService\ApiServicePlugin;
 use Filament\Http\Middleware\Authenticate;
@@ -23,12 +26,14 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use DutchCodingCompany\FilamentSocialite\Provider;
+use Nuxtifyts\DashStackTheme\DashStackThemePlugin;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Kenepa\TranslationManager\TranslationManagerPlugin;
 use Filament\Http\Middleware\DisableBladeIconComponents;
+use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -65,6 +70,7 @@ class AdminPanelProvider extends PanelProvider
             ->when($this->settings->registration_enabled ?? true, fn($panel) => $panel->registration())
             ->when($this->settings->password_reset_enabled ?? true, fn($panel) => $panel->passwordReset())
             ->emailVerification()
+            ->globalSearch()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -110,17 +116,22 @@ class AdminPanelProvider extends PanelProvider
     private function getPlugins(): array
     {
         $plugins = [
-            ThemesPlugin::make(),
             ActivitylogPlugin::make()
                 ->navigationIcon('heroicon-o-clock')
                 ->navigationItem()
                 ->navigationGroup('User & Access Control')
                 ->label('Audit & Activity Logs'),
 
+            DashStackThemePlugin::make(),
             FilamentShieldPlugin::make(),
             FilamentLaravelBackupPlugin::make(),
             FilamentPWAPlugin::make(),
             FilamentMediaManagerPlugin::make(),
+            GlobalSearchModalPlugin::make()
+                ->SwappableOnMobile(enabled: false)
+                ->localStorageMaxItemsAllowed(20)
+                ->RetainRecentIfFavorite(true)
+                ->placeholder('Type to search...'),
             // ApiServicePlugin::make(),
             BreezyCore::make()
                 ->myProfile(

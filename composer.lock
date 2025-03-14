@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5441a6d7219a545bf3b2429676ae3bf",
+    "content-hash": "b16ca1f1c1a4c19644bb4082503ab723",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -611,6 +611,53 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "charrafimed/global-search-modal",
+            "version": "v3.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CharrafiMed/global-search-modal.git",
+                "reference": "0130edfb1faa52d6f8a716fc2e598e3f7669f5f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CharrafiMed/global-search-modal/zipball/0130edfb1faa52d6f8a716fc2e598e3f7669f5f1",
+                "reference": "0130edfb1faa52d6f8a716fc2e598e3f7669f5f1",
+                "shasum": ""
+            },
+            "require": {
+                "filament/support": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CharrafiMed\\GlobalSearchModal\\GlobalSearchModalServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CharrafiMed\\GlobalSearchModal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CharrafiMed",
+                    "email": "charrafimohamed27@gmail.com"
+                }
+            ],
+            "description": "advanced global search modal",
+            "support": {
+                "issues": "https://github.com/CharrafiMed/global-search-modal/issues",
+                "source": "https://github.com/CharrafiMed/global-search-modal/tree/v3.7.0"
+            },
+            "time": "2025-02-06T15:27:48+00:00"
         },
         {
             "name": "composer/pcre",
@@ -6349,6 +6396,75 @@
                 }
             ],
             "time": "2024-11-21T10:39:51+00:00"
+        },
+        {
+            "name": "nuxtifyts/dash-stack-theme",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Fa-BRAIK/dash-stack-theme.git",
+                "reference": "245de357ccecce6013cbc4a6b4ff7f047bec210d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Fa-BRAIK/dash-stack-theme/zipball/245de357ccecce6013cbc4a6b4ff7f047bec210d",
+                "reference": "245de357ccecce6013cbc4a6b4ff7f047bec210d",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "illuminate/contracts": "^11.0|^12.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.19"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^1.20",
+                "phpunit/phpunit": "^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nuxtifyts\\DashStackTheme\\DashStackThemeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nuxtifyts\\DashStackTheme\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Farouk Braik",
+                    "email": "faroukbraik17@gmail.com"
+                }
+            ],
+            "description": "DashStack theme for filament php",
+            "keywords": [
+                "dashStack",
+                "dashboard-theme",
+                "filament",
+                "filamentphp",
+                "filamentphp-theme",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/Fa-BRAIK/dash-stack-theme/issues",
+                "source": "https://github.com/Fa-BRAIK/dash-stack-theme/tree/v1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Fa-BRAIK",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-05T20:56:55+00:00"
         },
         {
             "name": "openspout/openspout",

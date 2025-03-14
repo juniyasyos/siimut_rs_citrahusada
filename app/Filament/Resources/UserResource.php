@@ -17,6 +17,7 @@ use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Model;
 use App\Filament\Resources\BaseResource;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
@@ -40,8 +41,36 @@ class UserResource extends BaseResource
 {
 
     protected static ?string $model = User::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Email' => $record->email,
+            'Role' => $record->roles->first()->name ?? 'No Role',
+        ];
+    }
+
+    public static function getGlobalSearchResultTitle(Model $record): string
+    {
+        return $record->name;
+    }
+
+    public static function getGlobalSearchResultUrl(Model $record): ?string
+    {
+        return route('filament.admin.resources.users.edit', $record);
+    }
+
+    public static function getGlobalSearchResultImage(Model $record): ?string
+    {
+        return $record->profile_photo_url ?? null;
+    }
 
     public static function getLabel(): ?string
     {
