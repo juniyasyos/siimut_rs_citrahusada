@@ -1,8 +1,5 @@
 # 🏥 SIIMUT - Sistem Indikator Mutu untuk Rumah Sakit  
 
-![GitHub stars](https://img.shields.io/github/stars/juniyasyos/siimut_rs_citrahusada?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/juniyasyos/siimut_rs_citrahusada?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/juniyasyos/siimut_rs_citrahusada?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 ![PHP Version](https://img.shields.io/badge/PHP-8.3-blue?style=flat-square&logo=php)
 ![Laravel Version](https://img.shields.io/badge/Laravel-11.0-red?style=flat-square&logo=laravel)
