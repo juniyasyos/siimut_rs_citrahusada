@@ -33,6 +33,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\ExportBulkAction;
 use App\Filament\Resources\UserResource\Pages;
+use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 use Filament\Infolists\Components\Section as InfolistSection;
 use Rmsramos\Activitylog\Actions\ActivityLogTimelineTableAction;
 use Rmsramos\Activitylog\RelationManagers\ActivitylogRelationManager;
@@ -154,12 +155,12 @@ class UserResource extends BaseResource
                             ->optionsLimit(10)
                             ->getOptionLabelFromRecordUsing(fn($record) => $record->name),
                     ]),
+                Impersonate::make()->label('Impersonate'),
                 ActionGroup::make([
                     ViewAction::make(),
                     EditAction::make(),
                     DeleteAction::make(),
                 ])->button()->label('Actions'),
-                // Impersonate::make(),
             ])
             ->headerActions([
                 ExportAction::make()
