@@ -1,152 +1,144 @@
-# 🌟 OAS - Organizational Administration System  
+# 🏥 SIIMUT - Sistem Indikator Mutu untuk Rumah Sakit  
 
-**OAS** is a robust and scalable **FilamentPHP** starter kit designed to streamline the development of **admin panels**. This project is a **fork of [Kaido Kit](https://github.com/siubie/kaido-kit)**, incorporating additional optimizations, custom configurations, and enhanced features tailored for a **seamless developer experience**.
-
-![GitHub stars](https://img.shields.io/github/stars/juniyasyos/oas?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/juniyasyos/oas?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/juniyasyos/oas?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/juniyasyos/siimut_rs_citrahusada?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/juniyasyos/siimut_rs_citrahusada?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/juniyasyos/siimut_rs_citrahusada?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
-![PHP Version](https://img.shields.io/badge/PHP-8.2-blue?style=flat-square&logo=php)
+![PHP Version](https://img.shields.io/badge/PHP-8.3-blue?style=flat-square&logo=php)
 ![Laravel Version](https://img.shields.io/badge/Laravel-11.0-red?style=flat-square&logo=laravel)
 ![Filament Version](https://img.shields.io/badge/Filament-3.2-purple?style=flat-square)
 
-## 🎯 Purpose  
+**SIIMUT (Sistem Indikator Mutu untuk Rumah Sakit)** adalah platform berbasis web yang dirancang untuk **memantau, menganalisis, dan meningkatkan mutu layanan kesehatan** di rumah sakit Indonesia. Sistem ini selaras dengan standar **Kementerian Kesehatan RI, Komisi Akreditasi Rumah Sakit (KARS), dan SNARS**, memungkinkan institusi kesehatan untuk **mengotomatiskan pengelolaan indikator mutu** guna mendukung peningkatan kualitas layanan berbasis data.  
 
-OAS aims to provide a **powerful, pre-configured foundation** for developers building administrative dashboards, management systems, and enterprise applications. It focuses on:  
+Dengan meningkatnya tuntutan transparansi, akuntabilitas, dan efisiensi dalam pelayanan kesehatan, SIIMUT hadir sebagai solusi yang **terintegrasi, adaptif, dan berbasis teknologi** untuk membantu rumah sakit dalam pengambilan keputusan strategis serta pemenuhan regulasi nasional.  
 
-✅ **Accelerated Development** – Prebuilt **FilamentPHP** components for rapid CRUD generation.  
-✅ **Authentication & Authorization** – Role-Based Access Control (RBAC), **Google login**, **2FA**, and user impersonation.  
-✅ **API-Ready** – Seamless **Filament API Service** integration for building scalable applications.  
-✅ **Content & Media Management** – Integrated **Spatie Media Library** for handling images and files.  
-✅ **Performance & Customization** – Optimized structure with flexible configuration options.  
+## 🎯 Tujuan  
+
+SIIMUT dirancang untuk membantu rumah sakit dalam:  
+
+✅ **Efisiensi & Akurasi** – Digitalisasi pencatatan dan analisis untuk mengurangi kesalahan manual.  
+✅ **Kepatuhan Standar** – Memastikan standar **KARS & SNARS** melalui pemantauan sistematis.  
+✅ **Analisis Data** – Laporan real-time dan visualisasi untuk keputusan berbasis bukti.  
+✅ **Peningkatan Mutu** – Identifikasi tren, analisis masalah, dan optimalisasi layanan.  
+✅ **Akses & Integrasi** – Data terstruktur untuk manajemen, tenaga medis, dan unit mutu. terkoneksi.  
 
 ---
 
 ## 🚀 Quick Start  
 
-To set up OAS, follow the steps below:  
+Untuk menginstal dan menjalankan **SIIMUT**, ikuti langkah-langkah berikut:  
 
-### 1️⃣ Clone the Repository  
+### 1️⃣ Clone Repository  
 ```sh
-git clone https://github.com/juniyasyos/OAS.git
-cd OAS
-```
+git clone https://github.com/juniyasyos/siimut_rs_citrahusada.git SIIMUT
+cd SIIMUT
+```  
 
-### 2️⃣ Install Dependencies  
+### 2️⃣ Install Dependensi  
 ```sh
 composer install && npm install
 composer run post-update-cmd
-```
+```  
 
-### 3️⃣ Environment Setup  
+### 3️⃣ Konfigurasi Lingkungan  
 ```sh
 composer run post-root-package-install
 composer run post-create-project-cmd
-```
-Modify the `.env` file to configure your **database** and **third-party integrations**.  
+```  
+Sesuaikan file `.env` untuk konfigurasi **database** dan integrasi lainnya.  
 
-### 4️⃣ Migrate Database  
+### 4️⃣ Migrasi Database  
 ```sh
 composer run setup
-```
+```  
 
-### 5️⃣ Serve the Application  
+### 5️⃣ Jalankan Aplikasi  
 ```sh
 composer run dev
-```
+```  
 
 ---
 
-## ⚙️ Key Features  
+## ⚙️ Fitur Utama  
 
-### 🏗️ **Developer-Friendly**  
-- Pre-configured **FilamentPHP** for efficient admin panel creation.  
-- Custom **stubs & utilities** for rapid development.  
-- **Auto-reload & hot module replacement** for a smoother workflow.  
+### 🏥 **Manajemen Indikator Mutu yang Efisien**  
+- Pemantauan indikator mutu berdasarkan **standar KARS & SNARS**.  
+- Penyimpanan data historis untuk **analisis tren dan evaluasi mutu**.  
 
-### 🔐 **Advanced Authentication & Authorization**  
-- **RBAC (Role-Based Access Control)** using [Filament Shield](https://filamentphp.com/plugins/bezhansalleh-shield).  
-- **Google OAuth Login** powered by [Filament Socialite](https://filamentphp.com/plugins/dododedodonl-socialite).  
-- **Two-Factor Authentication (2FA)** support.  
-- **User Impersonation** via [Filament Impersonate](https://filamentphp.com/plugins/joseph-szobody-impersonate).  
+### 📊 **Dashboard & Analitik Real-Time**  
+- **Visualisasi data indikator mutu** dalam bentuk grafik dan tabel interaktif.  
+- **Laporan otomatis** yang dapat diekspor ke berbagai format (PDF, Excel).  
 
-### 🔄 **API & Integration**  
-- **REST API** support with [Filament API Service](https://filamentphp.com/plugins/rupadana-api-service).  
-- Secure **API authentication & token management**.  
-- **Resend Email Integration** for streamlined email sending.  
+### 🔐 **Keamanan & Akses Kontrol**  
+- **Role-Based Access Control (RBAC)** untuk memastikan akses data hanya bagi pihak yang berwenang.  
+- **Audit log** untuk melacak perubahan dan aktivitas pengguna.  
 
-### 🖼️ **Media & Content Management**  
-- **File & image handling** with [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary).  
-- **Dynamic settings management** with [Spatie Laravel Settings](https://github.com/spatie/laravel-settings).  
-- **Drag & Drop File Uploads** with preview functionality.  
+### 🔄 **Integrasi & Skalabilitas**  
+- **Dukungan API** untuk menghubungkan SIIMUT dengan sistem lain di rumah sakit.  
+- **Struktur modular** yang dapat dikembangkan sesuai kebutuhan rumah sakit.  
 
-### ⚙️ **Performance & Customization**  
-- Optimized **Tailwind CSS** theme for a clean UI.  
-- **Modular design** with extendable configurations.  
-- **Flexible panel settings** for easy customization.  
+### ⚙️ **Kustomisasi & Kemudahan Penggunaan**  
+- **Antarmuka intuitif** untuk tenaga medis dan administrator.  
+- **Konfigurasi fleksibel** untuk menyesuaikan dengan kebijakan mutu masing-masing rumah sakit.  
 
 ---
 
-## 🔧 Configuration  
+## 🔧 Konfigurasi  
 
-### **Database Configuration**  
-Edit your `.env` file with your database credentials:  
+### **Konfigurasi Database**  
+Edit file `.env` dengan kredensial database:  
 ```ini
-DB_CONNECTION=pgsql
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_DATABASE=oas
-DB_USERNAME=postgres
+DB_PORT=3306
+DB_DATABASE=siimut
+DB_USERNAME=root
 DB_PASSWORD=
-```
+```  
 
-### **Google Authentication (Optional)**  
+### **Konfigurasi Email (Opsional)**  
 ```ini
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-GOOGLE_REDIRECT_URI=http://localhost:8000/admin/oauth/callback/google
-```
-
-### **Email Setup (Optional - Resend API)**  
-```ini
-MAIL_MAILER=resend
-RESEND_API_KEY=
-MAIL_FROM_ADDRESS="admin@domain.com"
-MAIL_FROM_NAME="${APP_NAME}"
-```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_FROM_ADDRESS="admin@rs-example.com"
+MAIL_FROM_NAME="SIIMUT RS"
+```  
 
 ---
 
-## 📢 Why Choose OAS?  
+## 📢 Mengapa Memilih SIIMUT?  
 
-OAS builds upon **Kaido Kit** and **FilamentPHP**, offering a **production-ready** admin panel framework with:  
-✔ **Seamless UI/UX** – Modern, polished, and intuitive admin interface.  
-✔ **Enhanced Security** – Multi-factor authentication and robust access control.  
-✔ **Scalability** – Designed to support enterprise-level applications.  
-✔ **Developer Efficiency** – Focus on **building features**, not boilerplate code.  
-
----
-
-## 🤝 Contributing  
-
-We welcome contributions from the community! To contribute:  
-1. **Fork the repository**  
-2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)  
-3. **Commit your changes** (`git commit -m 'Add some amazing feature'`)  
-4. **Push to the branch** (`git push origin feature/amazing-feature`)  
-5. **Open a Pull Request**  
+SIIMUT dirancang khusus untuk mendukung **rumah sakit di Indonesia** dalam:  
+✔ **Efisiensi Pemantauan** – Proses pelacakan indikator mutu lebih cepat dan akurat.  
+✔ **Kepatuhan Regulasi** – Memastikan rumah sakit memenuhi standar **KARS & SNARS**.  
+✔ **Dukungan Keputusan** – Laporan berbasis data untuk perbaikan mutu berkelanjutan.  
+✔ **Keamanan & Skalabilitas** – Sistem aman dengan kemampuan ekspansi yang fleksibel.  
 
 ---
 
-## 💬 Support & Community  
+## 🤝 Kontribusi  
 
-📌 **Issues & Bugs** – [Open an Issue](https://github.com/YOUR_USERNAME/OAS/issues)  
-💡 **Feature Requests** – [Request a Feature](https://github.com/YOUR_USERNAME/OAS/issues)  
-📧 **Contact** – [Email Support](mailto:your-email@example.com)  
-💬 **FilamentPHP Community** – [Join the Discord](https://discord.com/invite/RwqXDUJGPg)  
+Kami menyambut kontribusi dari komunitas! Untuk berkontribusi:  
+1. **Fork repositori ini**  
+2. **Buat branch fitur baru** (`git checkout -b feature/nama-fitur`)  
+3. **Commit perubahan Anda** (`git commit -m 'Menambahkan fitur baru'`)  
+4. **Push ke branch Anda** (`git push origin feature/nama-fitur`)  
+5. **Buka Pull Request**  
 
 ---
 
-## ⭐ Show Your Support  
+## 💬 Dukungan & Komunitas  
 
-If you find **OAS** useful, **give it a ⭐ on GitHub** and help spread the word! 🚀  
+📌 **Laporkan Bug** – [Buka Issue](https://github.com/juniyasyos/siimut_rs_citrahusada/issues)  
+💡 **Usulan Fitur** – [Request Fitur](https://github.com/juniyasyos/siimut_rs_citrahusada/issues)  
+📧 **Kontak** – [Email Support](mailto:your-email@example.com)  
+
+---
+
+## ⭐ Dukung Proyek Ini  
+
+Jika **SIIMUT** bermanfaat, jangan lupa **beri ⭐ di GitHub** dan bantu sebarkan! 🚀  
+
