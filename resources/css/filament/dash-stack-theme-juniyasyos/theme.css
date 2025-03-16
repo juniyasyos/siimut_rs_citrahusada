@@ -73,8 +73,8 @@
 
                         > .fi-input-wrp-input {
                             > input.fi-input {
-                                @apply min-w-64;
                                 @apply placeholder:text-gray-600 dark:placeholder:text-gray-300;
+                                @apply w-40 sm:w-48 md:w-56 lg:w-64 xl:min-w-64; /* Responsif */
                             }
                         }
                     }
@@ -480,10 +480,12 @@
 
 /* Button Component Start */
 .fi-btn {
-    @apply rounded-lg py-2 px-4;
+    @apply rounded-md sm:rounded-lg;
+    @apply py-1 px-3 sm:py-2 sm:px-4;
+    @apply text-sm sm:text-base;
 
     .fi-btn-label {
-        @apply text-lg;
+        @apply text-sm sm:text-base;
     }
 }
 /* Button Component End */
@@ -505,15 +507,15 @@
 /* Icon Button Component End */
 
 /* Checkbox Component Start */
-.fi-checkbox-input  {
-    @apply w-5 h-5 ring-white dark:ring-white/10 rounded-s-md;
+.fi-checkbox-input {
+    @apply w-5 h-5 rounded-s-md ring-1 ring-gray-300 dark:ring-white/10 bg-white dark:bg-transparent;
 
     &:checked {
-        @apply bg-transparent dark:bg-transparent ring-1;
+        @apply bg-blue-500 dark:bg-blue-500 ring-blue-500 dark:ring-blue-500;
     }
 
-    &:focus, &:active, &:checked, &:focus:checked {
-        @apply outline-none ring-white dark:ring-white/10;
+    &:focus, &:active, &:checked:focus {
+        @apply outline-none ring-2 ring-blue-600 dark:ring-blue-400;
     }
 }
 /* Checkbox Component End */
@@ -585,6 +587,12 @@
 
 /* Tabs Component Start */
 .fi-tabs {
-    @apply ring-0 dark:bg-[var(--ds-dark-bg-secondary-color)] dark:border dark:border-white/10;
+    @apply ring-0 dark:bg-[var(--ds-dark-bg-secondary-color)] rounded-t-xl;
+}
+
+.fi-fo-tabs-tab {
+    @apply ring-offset-0 ring-0 dark:ring-1 dark:ring-offset-0 dark:ring-white/10;
+    @apply dark:bg-[var(--ds-dark-bg-secondary-color)];
 }
 /* Tabs Component End */
+
