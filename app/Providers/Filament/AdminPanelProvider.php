@@ -19,7 +19,7 @@ use Hasnayeen\Themes\Http\Middleware\SetTheme;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use DutchCodingCompany\FilamentSocialite\Provider;
-use Nuxtifyts\DashStackTheme\DashStackThemePlugin;
+use Juniyasyos\DashStackTheme\DashStackThemePlugin;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;

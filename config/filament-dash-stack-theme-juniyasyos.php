@@ -1,6 +1,6 @@
 <?php
 
-use Nuxtifyts\DashStackTheme\Support\Colors\Color;
+use Juniyasyos\DashStackTheme\Support\Colors\Color;
 
 return [
     'default-colors' => [
@@ -11,7 +11,7 @@ return [
 
     'collapsible-navigation-groups' => true,
 
-    'breadcrumbs' => false,
+    'breadcrumbs' => true,
 
     /**
      * Nunito Sans is the default font for the theme.
