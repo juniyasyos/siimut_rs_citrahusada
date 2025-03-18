@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Policies\MediaPolicy;
+use App\Policies\FolderPolicy;
 use Illuminate\Foundation\Vite;
 use App\Policies\ActivityPolicy;
 use Illuminate\Support\Facades\URL;
@@ -11,6 +13,8 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Activitylog\Models\Activity;
 use Filament\Support\Facades\FilamentView;
+use Juniyasyos\FilamentMediaManager\Models\Media;
+use Juniyasyos\FilamentMediaManager\Models\Folder;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::policy(Activity::class, ActivityPolicy::class);
+        Gate::policy(Folder::class, FolderPolicy::class);
+        Gate::policy(Media::class, MediaPolicy::class);
 
         Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
             $event->extendSocialite('discord', \SocialiteProviders\Google\Provider::class);

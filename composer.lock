@@ -3467,19 +3467,20 @@
         },
         {
             "name": "juniyasyos/filament-media-manager",
-            "version": "v1.2.2",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/juniyasyos/filament-media-manager.git",
-                "reference": "8db2567068d71ef110e1c548d9fa14d19652ee41"
+                "reference": "e172ff4aa4be589f0c137a3d30b6411b87e6208e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juniyasyos/filament-media-manager/zipball/8db2567068d71ef110e1c548d9fa14d19652ee41",
-                "reference": "8db2567068d71ef110e1c548d9fa14d19652ee41",
+                "url": "https://api.github.com/repos/juniyasyos/filament-media-manager/zipball/e172ff4aa4be589f0c137a3d30b6411b87e6208e",
+                "reference": "e172ff4aa4be589f0c137a3d30b6411b87e6208e",
                 "shasum": ""
             },
             "require": {
+                "bezhansalleh/filament-shield": "^3.3",
                 "filament/filament": "^v3.0.0",
                 "filament/spatie-laravel-media-library-plugin": "^v3.0.0",
                 "php": "^8.2",
@@ -3526,9 +3527,9 @@
             ],
             "support": {
                 "issues": "https://github.com/juniyasyos/filament-media-manager/issues",
-                "source": "https://github.com/juniyasyos/filament-media-manager/tree/v1.2.2"
+                "source": "https://github.com/juniyasyos/filament-media-manager/tree/v1.3.0"
             },
-            "time": "2025-03-13T15:32:42+00:00"
+            "time": "2025-03-18T14:46:23+00:00"
         },
         {
             "name": "juniyasyos/filament-pwa-kaido",
@@ -3602,16 +3603,16 @@
         },
         {
             "name": "juniyasyos/filament-settings-hub-kaido",
-            "version": "v4.0.1",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub.git",
-                "reference": "e0f0c5ca3b8a4677b0be188901d6dfcab99e9560"
+                "reference": "647fd81f65090a8b2e80ad07f71f0f35ca3ca5b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juniyasyos/juniyasyos-filament-settings-hub/zipball/e0f0c5ca3b8a4677b0be188901d6dfcab99e9560",
-                "reference": "e0f0c5ca3b8a4677b0be188901d6dfcab99e9560",
+                "url": "https://api.github.com/repos/juniyasyos/juniyasyos-filament-settings-hub/zipball/647fd81f65090a8b2e80ad07f71f0f35ca3ca5b9",
+                "reference": "647fd81f65090a8b2e80ad07f71f0f35ca3ca5b9",
                 "shasum": ""
             },
             "require": {
@@ -3662,9 +3663,9 @@
             ],
             "support": {
                 "issues": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub/issues",
-                "source": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub/tree/v4.0.1"
+                "source": "https://github.com/juniyasyos/juniyasyos-filament-settings-hub/tree/v4.1.0"
             },
-            "time": "2025-03-15T14:07:58+00:00"
+            "time": "2025-03-17T04:05:00+00:00"
         },
         {
             "name": "kenepa/translation-manager",
@@ -15879,16 +15880,16 @@
         },
         {
             "name": "sebastian/type",
-            "version": "5.1.0",
+            "version": "5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/type.git",
-                "reference": "461b9c5da241511a2a0e8f240814fb23ce5c0aac"
+                "reference": "a8a7e30534b0eb0c77cd9d07e82de1a114389f5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/461b9c5da241511a2a0e8f240814fb23ce5c0aac",
-                "reference": "461b9c5da241511a2a0e8f240814fb23ce5c0aac",
+                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/a8a7e30534b0eb0c77cd9d07e82de1a114389f5e",
+                "reference": "a8a7e30534b0eb0c77cd9d07e82de1a114389f5e",
                 "shasum": ""
             },
             "require": {
@@ -15924,7 +15925,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/type/issues",
                 "security": "https://github.com/sebastianbergmann/type/security/policy",
-                "source": "https://github.com/sebastianbergmann/type/tree/5.1.0"
+                "source": "https://github.com/sebastianbergmann/type/tree/5.1.2"
             },
             "funding": [
                 {
@@ -15932,7 +15933,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-17T13:12:04+00:00"
+            "time": "2025-03-18T13:35:50+00:00"
         },
         {
             "name": "sebastian/version",

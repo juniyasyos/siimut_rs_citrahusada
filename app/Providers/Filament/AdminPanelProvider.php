@@ -111,7 +111,7 @@ class AdminPanelProvider extends PanelProvider
             DashStackThemePlugin::make(),
             FilamentShieldPlugin::make(),
             FilamentPWAPlugin::make(),
-            FilamentMediaManagerPlugin::make(),
+            FilamentMediaManagerPlugin::make()->allowUserAccess()->allowSubFolders(),
             FilamentLaravelBackupPlugin::make(),
             // ApiServicePlugin::make(),
             ActivitylogPlugin::make()
