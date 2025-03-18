@@ -128,7 +128,7 @@ class AdminPanelProvider extends PanelProvider
                 ->myProfile(
                     shouldRegisterUserMenu: true,
                     shouldRegisterNavigation: true,
-                    navigationGroup: 'Settings',
+                    navigationGroup: __('filament-settings-hub::messages.group'),
                     hasAvatars: true,
                     slug: 'my-profile'
                 )

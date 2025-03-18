@@ -2,7 +2,7 @@
 
 return [
     'title' => 'System',
-    'group' => 'Settings',
+    'group' => 'System & Configurations',
     'back' => 'Back',
     'settings' => [
         'site' => [

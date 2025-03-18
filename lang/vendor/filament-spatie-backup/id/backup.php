@@ -61,7 +61,7 @@ return [
             ],
 
             'navigation' => [
-                'group' => 'Pengaturan',
+                'group' => 'Pengaturan & Konfigurasi',
                 'label' => 'Cadangan',
             ],
         ],

@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Sistem',
-    'group' => 'Pengaturan',
+    'group' => 'Pengaturan & Konfigurasi',
     'back' => 'Kembali',
     'settings' => [
         'site' => [

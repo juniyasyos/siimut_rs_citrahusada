@@ -20,7 +20,7 @@ return [
             'password' => 'Password',
             'password_confirmation' => 'Password Confirmation',
         ],
-        'group' => 'Content',
+        'group' => '',
     ],
     'media' => [
         'title' => 'Media',

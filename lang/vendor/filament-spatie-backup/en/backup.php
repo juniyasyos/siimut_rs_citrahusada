@@ -61,7 +61,7 @@ return [
             ],
 
             'navigation' => [
-                'group' => 'Settings',
+                'group' => 'System & Configurations',
                 'label' => 'Backups',
             ],
         ],

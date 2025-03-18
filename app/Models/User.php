@@ -14,6 +14,7 @@ use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
@@ -34,7 +35,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
         'password',
         'phone_number',
         'avatar_url',
-        'status'
+        'status',
+        'position_id'
     ];
 
     /**
@@ -60,10 +62,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
         ];
     }
 
-    // public function getFilamentAvatarUrl(): ?string
-    // {
-    //     return asset($this->avatar_url);
-    // }
+    /**
+     * Relation User to Position One to One
+     *
+     * @return BelongsTo
+     */
+    public function position(): BelongsTo
+    {
+        return $this->belongsTo(Position::class);
+    }
 
     public function getFilamentAvatarUrl(): ?string
     {

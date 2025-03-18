@@ -18,7 +18,6 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        // dd('wah bisa masuk sini');
         return $user->can('view_any_user');
     }
 
