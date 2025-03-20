@@ -10,6 +10,28 @@ jobs:
   laravel-tests:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: siimut
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --host=localhost --user=root --password=root"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+      redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+        options: --entrypoint redis-server
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -18,6 +40,7 @@ jobs:
       uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.3'
+        extensions: mbstring, bcmath, pdo, pdo_mysql, redis
         tools: composer, phpstan, phpunit
 
     - name: Cache Composer dependencies
@@ -28,34 +51,78 @@ jobs:
         restore-keys: |
           composer-${{ runner.os }}-
 
+    - name: Copy .env example
+      run: cp .env.example .env
+
     - name: Install Dependencies
-      run: composer install
+      run: composer install --no-progress --prefer-dist --optimize-autoloader
 
     - name: Execute post-install scripts
       run: composer run post-root-package-install
 
-    - name: Generate key
+    - name: Generate Application Key
       run: php artisan key:generate --ansi
 
-    - name: Create Database
+    - name: Setup database configuration
       run: |
-        mkdir -p database
-        touch database/database.sqlite
+        echo "DB_CONNECTION=mysql" >> .env
+        echo "DB_HOST=127.0.0.1" >> .env
+        echo "DB_PORT=3306" >> .env
+        echo "DB_DATABASE=siimut" >> .env
+        echo "DB_USERNAME=user" >> .env
+        echo "DB_PASSWORD=password" >> .env
+        echo "REDIS_HOST=127.0.0.1" >> .env
+        echo "REDIS_PORT=6379" >> .env
+        echo "QUEUE_CONNECTION=redis" >> .env
 
-    - name: Setup database
+    - name: Wait for Services to be Ready
       run: |
-        composer run setup --no-interaction
+        echo "Waiting for MySQL and Redis to be ready..."
+        until mysqladmin ping -h"127.0.0.1" --silent; do
+          echo "Waiting for MySQL..."
+          sleep 2
+        done
+        until (echo PING | nc -w 1 127.0.0.1 6379) do
+          echo "Waiting for Redis..."
+          sleep 2
+        done
+        echo "MySQL and Redis are up and running!"
+
+    - name: Optimize Application
+      run: |
+        php artisan config:cache
+        php artisan route:cache
+        php artisan view:cache
+
+    - name: Run Migrations & Seeders
+      run: composer run setup
 
     - name: Set Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
 
-    - name: Create SQLite Database
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
+    - name: Run Laravel Queue Worker
+      run: nohup php artisan queue:work --tries=3 &
 
-    - name: Run Laravel Tests Unit
+    - name: Run Laravel Tests (Unit)
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_CONNECTION: mysql
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_DATABASE: siimut
+        DB_USERNAME: user
+        DB_PASSWORD: password
+        REDIS_HOST: 127.0.0.1
+        REDIS_PORT: 6379
       run: php artisan test --testsuite=Unit
+
+    - name: Run Laravel Tests (Feature)
+      env:
+        DB_CONNECTION: mysql
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_DATABASE: siimut
+        DB_USERNAME: user
+        DB_PASSWORD: password
+        REDIS_HOST: 127.0.0.1
+        REDIS_PORT: 6379
+      run: php artisan test --testsuite=Feature

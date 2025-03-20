@@ -96,7 +96,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 'User & Access Control',
-                'Organization Structure',
+                'Indikator Mutu',
                 'System & Configurations'
             ])
             ->plugins(

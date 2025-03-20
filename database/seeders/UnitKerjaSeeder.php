@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
 use App\Models\UnitKerja;
 
 class UnitKerjaSeeder extends Seeder
@@ -18,8 +19,12 @@ class UnitKerjaSeeder extends Seeder
             ['unit_name' => 'Laboratorium', 'description' => 'Unit yang melakukan tes laboratorium.'],
         ];
 
-        foreach ($unitKerjaList as $unit) {
-            UnitKerja::firstOrCreate($unit);
-        }
+        $unitKerjaIds = collect($unitKerjaList)->map(function ($unit) {
+            return UnitKerja::firstOrCreate($unit)->id;
+        });
+
+        User::inRandomOrder()->take(ceil(User::count() * 0.5))->each(function ($user) use ($unitKerjaIds) {
+            $user->unitKerja()->sync([$unitKerjaIds->random()]);
+        });
     }
 }
