@@ -28,6 +28,13 @@ class UnitKerja extends Model
     ];
 
     /**
+     * table
+     *
+     * @var string
+     */
+    protected $table = 'unit_kerja';
+
+    /**
      * The attributes that are guarded.
      *
      * @var array<int, string>

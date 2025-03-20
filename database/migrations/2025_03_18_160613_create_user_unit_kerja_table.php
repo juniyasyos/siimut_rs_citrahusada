@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('user_unit_kerja', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('unit_kerja_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('unit_kerja_id')->constrained('unit_kerja')->cascadeOnDelete()->cascadeOnUpdate();
             $table->primary(['user_id', 'unit_kerja_id']);
             $table->timestamps();
         });

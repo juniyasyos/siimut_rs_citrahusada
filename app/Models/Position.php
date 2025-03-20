@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Position extends Model
 {
@@ -16,7 +17,7 @@ class Position extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'description'];
 
     /**
      * The attributes that are guarded.
@@ -31,4 +32,14 @@ class Position extends Model
      * @var array<int, string>
      */
     protected $hidden = ['created_at', 'updated_at'];
+
+    /**
+     * Relation User to Position One to One
+     *
+     * @return BelongsTo
+     */
+    public function users(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

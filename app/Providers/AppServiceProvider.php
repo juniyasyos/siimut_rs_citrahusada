@@ -35,22 +35,27 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        collect(glob(app_path('Models') . '/*.php'))
-            ->map(fn($file) => [
-                'model' => "App\\Models\\" . pathinfo($file, PATHINFO_FILENAME),
-                'policy' => "App\\Policies\\" . pathinfo($file, PATHINFO_FILENAME) . "Policy"
-            ])
-            ->each(
-                fn($item) => class_exists($item['model']) && class_exists($item['policy'])
-                ? Gate::policy($item['model'], $item['policy'])
-                : null
-            );
+        // collect(glob(app_path('Models') . '/*.php'))
+        //     ->map(fn($file) => [
+        //         'model' => "App\\Models\\" . pathinfo($file, PATHINFO_FILENAME),
+        //         'policy' => "App\\Policies\\" . pathinfo($file, PATHINFO_FILENAME) . "Policy"
+        //     ])
+        //     ->each(
+        //         fn($item) => class_exists($item['model']) && class_exists($item['policy'])
+        //         ? Gate::policy($item['model'], $item['policy'])
+        //         : null
+        //     );
+
+        Gate::policy(Activity::class, ActivityPolicy::class);
+        Gate::policy(Folder::class, FolderPolicy::class);
+        Gate::policy(Media::class, MediaPolicy::class);
 
         Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
             $event->extendSocialite('discord', \SocialiteProviders\Google\Provider::class);
         });
 
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'indikator-mutu');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'navigation-group');
 
         // $loader = app('translator')->getLoader();
         // $registeredLangs = $loader->namespaces();

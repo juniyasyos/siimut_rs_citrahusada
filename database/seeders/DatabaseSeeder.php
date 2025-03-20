@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Position;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,5 +29,12 @@ class DatabaseSeeder extends Seeder
                 UnitKerjaSeeder::class,
             ]
         );
+
+        $allPositions = Position::all();
+        User::all()->each(function ($user) use ($allPositions) {
+            $user->update([
+                'position_id' => $allPositions->random()->id
+            ]);
+        });
     }
 }

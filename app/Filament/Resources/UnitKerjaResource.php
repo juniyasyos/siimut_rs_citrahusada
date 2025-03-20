@@ -3,11 +3,16 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\User;
 use Filament\Tables;
 use Filament\Forms\Form;
 use App\Models\UnitKerja;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Awcodes\TableRepeater\Header;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Illuminate\Database\Eloquent\Model;
@@ -20,8 +25,9 @@ use Filament\Tables\Actions\ForceDeleteAction;
 use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Actions\ForceDeleteBulkAction;
 use App\Filament\Resources\UnitKerjaResource\Pages;
-use Filament\Forms\Components\{TextInput, Textarea, Repeater, Select, Grid};
+use Awcodes\TableRepeater\Components\TableRepeater;
 use App\Filament\Resources\UnitKerjaResource\RelationManagers;
+use Filament\Forms\Components\{TextInput, Textarea, Repeater, Select, Grid};
 
 class UnitKerjaResource extends Resource
 {
@@ -37,7 +43,7 @@ class UnitKerjaResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            'Description' => $record->description,
+            __('indikator-mutu::content.fields.description') => $record->description,
         ];
     }
 
@@ -53,7 +59,7 @@ class UnitKerjaResource extends Resource
 
     public static function getPermissionPrefixes(): array
     {
-        return array_merge([
+        return [
             'view',
             'view_any',
             'create',
@@ -66,58 +72,79 @@ class UnitKerjaResource extends Resource
             'delete_any',
             'force_delete',
             'force_delete_any'
-        ]);
+        ];
     }
 
     public static function getLabel(): ?string
     {
-        return __('indikator-mutu::content.title');
+        return __('indikator-mutu::content.navigation.title');
     }
 
     public static function getPluralLabel(): ?string
     {
-        return __('indikator-mutu::content.plural');
+        return __('indikator-mutu::content.navigation.plural');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return __('indikator-mutu::content.navigation_group');
+        return __('indikator-mutu::content.navigation.group');
     }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Grid::make(2)->schema([
-                    TextInput::make('unit_name')
-                        ->label(__('indikator-mutu::content.fields.unit_name'))
-                        ->required()
-                        ->unique('unit_kerja', 'unit_name')
-                        ->maxLength(255)
-                        ->columnSpan(1),
+                Section::make(__('indikator-mutu::content.form.unit.title'))
+                    ->description(__('indikator-mutu::content.form.unit.description'))
+                    ->schema([
+                        Card::make()->schema([
+                            Grid::make(2)->schema([
+                                TextInput::make('unit_name')
+                                    ->label(__('indikator-mutu::content.fields.unit_name'))
+                                    ->placeholder(__('indikator-mutu::content.form.unit.name_placeholder'))
+                                    ->helperText(__('indikator-mutu::content.form.unit.helper_text'))
+                                    ->required()
+                                    ->unique('unit_kerja', 'unit_name', ignoreRecord: true)
+                                    ->maxLength(255)
+                            ]),
 
-                    Textarea::make('description')
-                        ->label(__('indikator-mutu::content.fields.description'))
-                        ->rows(3)
-                        ->columnSpan(1),
-                ]),
+                            Textarea::make('description')
+                                ->label(__('indikator-mutu::content.fields.description'))
+                                ->placeholder(__('indikator-mutu::content.form.unit.description_placeholder'))
+                                ->rows(3)
+                                ->columnSpanFull(),
+                        ]),
+                    ]),
 
-                // Repeater::make('users')
-                //     ->label(__('Assign Users'))
-                //     ->relationship('users')
-                //     ->schema([
-                //         Select::make('user_id')
-                //             ->label(__('User'))
-                //             ->relationship('users', 'name')
-                //             ->searchable()
-                //             ->preload()
-                //             ->required(),
-                //     ])
-                //     ->addActionLabel(__('Tambah User'))
-                //     ->columns(2)
-                //     ->collapsed(),
+                Section::make(__('indikator-mutu::content.form.users.title'))
+                    ->description(__('indikator-mutu::content.form.users.description'))
+                    ->schema([
+                        Card::make()->schema([
+                            TableRepeater::make('users')
+                                ->headers([
+                                    Header::make('name')->label(__('indikator-mutu::content.fields.users')),
+                                ])
+                                ->renderHeader(false)
+                                ->relationship('users')
+                                ->schema([
+                                    Select::make('user_id')
+                                        ->label(__('indikator-mutu::content.fields.user_id'))
+                                        ->placeholder(__('indikator-mutu::content.form.users.search_placeholder'))
+                                        ->options(
+                                            User::with('position')->get()
+                                                ->mapWithKeys(fn($user) => [$user->id => "{$user->name} - " . ($user->position->name ?? __('indikator-mutu::content.fields.position'))])
+                                                ->toArray()
+                                        )
+                                        ->searchable()
+                                        ->preload()
+                                        ->required(),
+                                ])
+                                ->addActionLabel(__('indikator-mutu::content.form.users.add_button'))
+                                ->columns(3)
+                                ->collapsed(),
+                        ]),
+                    ]),
             ]);
-
     }
 
     public static function table(Table $table): Table
