@@ -16,12 +16,12 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: siimut
-          MYSQL_USER: user
-          MYSQL_PASSWORD: password
+          MYSQL_USER: root
+          MYSQL_PASSWORD:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping --host=localhost --user=root --password=root"
+          --health-cmd="mysqladmin ping --host=localhost --user=root --password="
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
@@ -69,8 +69,8 @@ jobs:
         echo "DB_HOST=127.0.0.1" >> .env
         echo "DB_PORT=3306" >> .env
         echo "DB_DATABASE=siimut" >> .env
-        echo "DB_USERNAME=user" >> .env
-        echo "DB_PASSWORD=password" >> .env
+        echo "DB_USERNAME=root" >> .env
+        echo "DB_PASSWORD=" >> .env
         echo "REDIS_HOST=127.0.0.1" >> .env
         echo "REDIS_PORT=6379" >> .env
         echo "QUEUE_CONNECTION=redis" >> .env
@@ -109,8 +109,8 @@ jobs:
         DB_HOST: 127.0.0.1
         DB_PORT: 3306
         DB_DATABASE: siimut
-        DB_USERNAME: user
-        DB_PASSWORD: password
+        DB_USERNAME: root
+        DB_PASSWORD: 
         REDIS_HOST: 127.0.0.1
         REDIS_PORT: 6379
       run: php artisan test --testsuite=Unit
@@ -121,8 +121,8 @@ jobs:
         DB_HOST: 127.0.0.1
         DB_PORT: 3306
         DB_DATABASE: siimut
-        DB_USERNAME: user
-        DB_PASSWORD: password
+        DB_USERNAME: root
+        DB_PASSWORD:
         REDIS_HOST: 127.0.0.1
         REDIS_PORT: 6379
       run: php artisan test --testsuite=Feature
