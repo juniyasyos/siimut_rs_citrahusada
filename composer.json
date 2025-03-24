@@ -13,6 +13,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "arbermustafa/filament-google-charts-widgets": "^2.0",
         "awcodes/filament-table-repeater": "^3.1",
         "aymanalhattami/filament-slim-scrollbar": "^2.1",
         "bezhansalleh/filament-shield": "^3.3",
