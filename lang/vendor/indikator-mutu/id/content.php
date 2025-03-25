@@ -3,7 +3,7 @@
 return [
     // Navigasi & Label Umum
     'navigation' => [
-        'group' => 'Indikator Mutu',
+        'group' => 'Quality Indicators',
         'title' => 'Unit Kerja',
         'plural' => 'Unit Kerja',
         'description' => 'Kelola unit kerja dalam sistem dengan efisien.',

@@ -57,10 +57,10 @@
 <?php unset($__componentOriginalceea4679a368984135244eacf4aafeca); ?>
 <?php endif; ?>
             <div class="flex-grow text-center md:text-left">
-                <p class="text-sm"><?php echo e($user->position->name); ?></p>
+                <p class="text-sm"><?php echo e(trans($user->position->name)); ?></p>
                 <h3 class="text-xl font-bold heading"><?php echo e($user->name); ?></h3>
                 <div class="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    <?php echo e($randomGreeting); ?>
+                    <?php echo e(trans($randomGreeting)); ?>
 
                 </div>
 
@@ -70,7 +70,7 @@
                         <span style="--c-50:var(--warning-50);--c-400:var(--warning-400);--c-600:var(--warning-600);"
                             class="fi-badge rounded-md text-xs font-medium ring-1 ring-inset px-2 py-1 fi-color-custom
                             bg-custom-50 text-custom-600 ring-custom-600/10 dark:bg-custom-400/10 dark:text-custom-400 dark:ring-custom-400/30 fi-color-warning">
-                            <?php echo e($role->name); ?>
+                            <?php echo e(trans($role->name)); ?>
 
                         </span>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
@@ -91,7 +91,7 @@
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['color' => 'gray','icon' => 'heroicon-m-arrow-left-on-rectangle','icon-alias' => 'panels::widgets.account.logout-button','labeled-from' => 'sm','tag' => 'button','type' => 'submit']); ?>
-                <?php echo e(__('filament-panels::widgets/account-widget.actions.logout.label')); ?>
+                <?php echo e(trans('filament-panels::widgets/account-widget.actions.logout.label')); ?>
 
              <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

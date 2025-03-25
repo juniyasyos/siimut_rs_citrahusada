@@ -3,9 +3,9 @@
 return [
 
     'group' => [
-        'user_access' => 'Pengguna & Kelola Akses',
-        'quality_indicator' => 'Indikator Mutu',
-        'system_navigation_group' => 'Sistem & Konfigurasi'
+        'user_access' => 'User & Access Control',
+        'quality_indicator' => 'Quality Indicators',
+        'system_navigation_group' => 'System & Configuration'
     ],
 
     'resources' => [

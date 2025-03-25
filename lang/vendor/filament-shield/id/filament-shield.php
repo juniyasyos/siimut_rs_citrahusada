@@ -31,7 +31,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'nav.group' => 'Pengguna & Kelola Akses',
+    'nav.group' => 'User & Access Control',
     'nav.role.label' => 'Peran & Hak Akses',
     'nav.role.icon' => 'heroicon-o-shield-check',
     'resource.label.role' => 'Peran',
