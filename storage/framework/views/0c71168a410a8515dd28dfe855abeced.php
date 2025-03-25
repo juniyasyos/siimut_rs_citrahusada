@@ -1,0 +1,1 @@
+<?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?><?php /**PATH /root/SI-IMUT/storage/framework/views/69d93d5cde0cc1ee5603a3b96a184e40.blade.php ENDPATH**/ ?>
