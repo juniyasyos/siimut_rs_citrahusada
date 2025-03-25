@@ -19,6 +19,7 @@
         "bezhansalleh/filament-shield": "^3.3",
         "charrafimed/global-search-modal": "^3.7",
         "dedoc/scramble": "^0.11.33",
+        "diogogpinto/filament-auth-ui-enhancer": "^1.0",
         "dutchcodingcompany/filament-socialite": "^2.3",
         "filament/filament": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",

@@ -20,6 +20,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use DutchCodingCompany\FilamentSocialite\Provider;
 use Juniyasyos\DashStackTheme\DashStackThemePlugin;
+use DiogoGPinto\AuthUIEnhancer\AuthUIEnhancerPlugin;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
@@ -108,6 +109,7 @@ class AdminPanelProvider extends PanelProvider
     private function getPlugins(): array
     {
         $plugins = [
+            AuthUIEnhancerPlugin::make(),
             FilamentApexChartsPlugin::make(),
             DashStackThemePlugin::make(),
             FilamentShieldPlugin::make(),
