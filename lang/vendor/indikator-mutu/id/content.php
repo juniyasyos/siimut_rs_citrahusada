@@ -1,11 +1,13 @@
 <?php
 
 return [
-    // Label & Judul
-    'title' => 'Unit Kerja',
-    'plural' => 'Unit-Unit Kerja',
-    'navigation_group' => 'Indikator Mutu',
-    'description' => 'Kelola unit kerja dalam sistem',
+    // Navigasi & Label Umum
+    'navigation' => [
+        'group' => 'Indikator Mutu',
+        'title' => 'Unit Kerja',
+        'plural' => 'Unit Kerja',
+        'description' => 'Kelola unit kerja dalam sistem dengan efisien.',
+    ],
 
     // Aksi
     'actions' => [
@@ -15,18 +17,42 @@ return [
         'restore' => 'Pulihkan Unit Kerja',
         'force_delete' => 'Hapus Permanen',
         'view' => 'Lihat Detail',
+        'manage_users' => 'Kelola Pengguna',
+        'save' => 'Simpan Perubahan',
+        'cancel' => 'Batal',
     ],
 
-    // Kolom
+    // Kolom/Form Field
     'fields' => [
         'id' => 'ID',
         'unit_name' => 'Nama Unit Kerja',
         'description' => 'Deskripsi',
         'created_at' => 'Dibuat Pada',
         'updated_at' => 'Diperbarui Pada',
+        'users' => 'Pengguna',
+        'user_id' => 'Pengguna',
+        'position' => 'Jabatan',
     ],
 
-    // Validasi & Pesan
+    // Bagian Formulir
+    'form' => [
+        'unit' => [
+            'title' => 'Informasi Unit Kerja',
+            'description' => 'Isi detail unit kerja dengan benar.',
+            'name_placeholder' => 'Masukkan nama unit kerja',
+            'description_placeholder' => 'Tambahkan deskripsi singkat tentang unit kerja ini',
+            'helper_text' => 'Nama unit harus unik dan maksimal 100 karakter.',
+        ],
+        'users' => [
+            'title' => 'Pengguna dalam Unit Kerja',
+            'description' => 'Tambahkan pengguna ke unit kerja ini.',
+            'search_placeholder' => 'Cari pengguna...',
+            'add_button' => 'Tambahkan Pengguna',
+            'remove_button' => 'Hapus Pengguna',
+        ],
+    ],
+
+    // Pesan & Notifikasi
     'messages' => [
         'created' => 'Unit kerja berhasil ditambahkan.',
         'updated' => 'Unit kerja berhasil diperbarui.',
@@ -39,7 +65,7 @@ return [
     // Filter & Pencarian
     'filters' => [
         'search' => 'Cari Unit Kerja...',
-        'trashed' => 'Tampilkan yang Dihapus',
+        'show_deleted' => 'Tampilkan yang Dihapus',
     ],
 
     // Kesalahan

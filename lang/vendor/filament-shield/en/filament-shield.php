@@ -33,6 +33,7 @@ return [
 
     'nav.group' => 'User & Access Control',
     'nav.role.label' => 'Roles & Permission',
+    'nav.role.icon' => 'heroicon-o-shield-check',
     'resource.label.role' => 'Role',
     'resource.label.roles' => 'Roles',
 

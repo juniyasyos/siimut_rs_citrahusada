@@ -8,6 +8,7 @@ use App\Models\User;
 use Filament\PanelProvider;
 use App\Filament\Pages\Login;
 use App\Settings\KaidoSetting;
+use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
 use Illuminate\Support\Facades\Schema;
 use Filament\Forms\Components\FileUpload;
@@ -20,7 +21,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use DutchCodingCompany\FilamentSocialite\Provider;
 use Juniyasyos\DashStackTheme\DashStackThemePlugin;
-use DiogoGPinto\AuthUIEnhancer\AuthUIEnhancerPlugin;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
@@ -109,7 +109,6 @@ class AdminPanelProvider extends PanelProvider
     private function getPlugins(): array
     {
         $plugins = [
-            AuthUIEnhancerPlugin::make(),
             FilamentApexChartsPlugin::make(),
             DashStackThemePlugin::make(),
             FilamentShieldPlugin::make(),
@@ -131,7 +130,7 @@ class AdminPanelProvider extends PanelProvider
                 ->myProfile(
                     shouldRegisterUserMenu: true,
                     shouldRegisterNavigation: true,
-                    navigationGroup: __('filament-settings-hub::messages.group'),
+                    navigationGroup: __('System & Configuration'),
                     hasAvatars: true,
                     slug: 'my-profile'
                 )

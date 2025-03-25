@@ -87,7 +87,7 @@ class UserResource extends Resource
 
     public static function getLabel(): ?string
     {
-        return __('Users');
+        return __('filament-navigation::navigation.resources.users');
     }
 
     public static function getPluralLabel(): ?string
@@ -97,7 +97,7 @@ class UserResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('User & Access Control');
+        return __('filament-navigation::navigation.group.user_access');
     }
 
     public static function form(Form $form): Form

@@ -33,6 +33,8 @@ class UnitKerjaResource extends Resource
 {
     protected static ?string $model = UnitKerja::class;
 
+    protected static ?string $slug = 'work-units';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function getGloballySearchableAttributes(): array

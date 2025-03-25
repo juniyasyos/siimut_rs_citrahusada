@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Policies\MediaPolicy;
 use App\Policies\FolderPolicy;
+use Filament\Facades\Filament;
 use Illuminate\Foundation\Vite;
 use App\Policies\ActivityPolicy;
 use Illuminate\Support\Facades\URL;
@@ -13,8 +14,11 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Activitylog\Models\Activity;
 use Filament\Support\Facades\FilamentView;
+use Rmsramos\Activitylog\ActivitylogPlugin;
 use Juniyasyos\FilamentMediaManager\Models\Media;
 use Juniyasyos\FilamentMediaManager\Models\Folder;
+use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
+use BezhanSalleh\FilamentLanguageSwitch\Enums\Placement;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -55,7 +59,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'indikator-mutu');
-        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'navigation-group');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'filament-navigation');
+
+        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
+            $switch
+                ->locales(['id', 'en']) // also accepts a closure
+                ->outsidePanelPlacement(Placement::BottomRight);
+        });
 
         // $loader = app('translator')->getLoader();
         // $registeredLangs = $loader->namespaces();
