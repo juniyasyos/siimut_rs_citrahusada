@@ -34,12 +34,12 @@ cd SIIMUT
 ### 2️⃣ Install Dependensi  
 ```sh
 composer install && npm install
-composer run post-update-cmd
+composer run post-root-package-install
 ```  
 
 ### 3️⃣ Konfigurasi Lingkungan  
 ```sh
-composer run post-root-package-install
+composer run post-update-cmd
 composer run post-create-project-cmd
 ```  
 Sesuaikan file `.env` untuk konfigurasi **database** dan integrasi lainnya.  
