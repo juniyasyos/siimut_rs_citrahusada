@@ -1,0 +1,2 @@
+<p class="text-gray-700 p-4 dark:text-gray-200"><?php echo e(__('Please enter a search term to get started.')); ?></p>
+<?php /**PATH /root/SI-IMUT/vendor/charrafimed/global-search-modal/resources/views/components/search/empty-query-text.blade.php ENDPATH**/ ?>
