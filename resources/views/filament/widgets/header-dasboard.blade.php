@@ -20,7 +20,7 @@
         <div class="flex items-start gap-x-4 p-4">
             <x-filament-panels::avatar.user size="xl" :user="$user" />
             <div class="flex-grow text-center md:text-left">
-                <p class="text-sm">{{ trans($user->position->name) }}</p>
+                <p class="text-sm">{{ trans($user->position?->name ?? 'Tidak ada posisi') }}</p>
                 <h3 class="text-xl font-bold heading">{{ $user->name }}</h3>
                 <div class="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300">
                     {{ trans($randomGreeting) }}

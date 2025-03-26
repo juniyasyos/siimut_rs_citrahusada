@@ -58,7 +58,7 @@
         @apply bg-white dark:bg-[var(--ds-dark-bg-secondary-color)];
 
         >div[x-persist="topbar.end"] {
-            @apply w-full;
+            @apply w-full justify-end;
 
             /* Global Search Component Start */
             >.fi-global-search {
