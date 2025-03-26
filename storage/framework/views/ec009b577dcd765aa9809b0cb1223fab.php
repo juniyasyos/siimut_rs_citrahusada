@@ -1,4 +1,4 @@
-<?php if(filament()->hasUnsavedChangesAlerts()): ?>
+<!--[if BLOCK]><![endif]--><?php if(filament()->hasUnsavedChangesAlerts()): ?>
         <?php
         $__scriptKey = '1622341640-0';
         ob_start();
@@ -41,5 +41,5 @@
 
         \Livewire\store($this)->push('scripts', $__output, $__scriptKey)
     ?>
-<?php endif; ?>
+<?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 <?php /**PATH /root/SI-IMUT/resources/views/vendor/filament-panels/components/unsaved-action-changes-alert.blade.php ENDPATH**/ ?>

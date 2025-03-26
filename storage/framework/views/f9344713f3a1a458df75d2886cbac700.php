@@ -160,7 +160,7 @@ unset($__defined_vars); ?>
         $displayClasses,
     ]); ?>"
 >
-    <?php if($trigger): ?>
+    <!--[if BLOCK]><![endif]--><?php if($trigger): ?>
         <div
             <?php if(! $trigger->attributes->get('disabled')): ?>
                 x-on:click="open"
@@ -171,7 +171,7 @@ unset($__defined_vars); ?>
             <?php echo e($trigger); ?>
 
         </div>
-    <?php endif; ?>
+    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
     <div x-cloak x-show="isOpen">
         <div
@@ -269,7 +269,7 @@ unset($__defined_vars); ?>
                         ])); ?>
 
                 >
-                    <?php if($heading || $header): ?>
+                    <!--[if BLOCK]><![endif]--><?php if($heading || $header): ?>
                         <div
                             class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                 'fi-modal-header flex px-6 pt-6',
@@ -284,7 +284,7 @@ unset($__defined_vars); ?>
                                 'items-center' => $hasIcon && $hasHeading && (! $hasDescription) && in_array($alignment, [Alignment::Start, Alignment::Left]),
                             ]); ?>"
                         >
-                            <?php if($closeButton): ?>
+                            <!--[if BLOCK]><![endif]--><?php if($closeButton): ?>
                                 <div
                                     class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                         'absolute',
@@ -313,13 +313,13 @@ unset($__defined_vars); ?>
 <?php unset($__componentOriginalf0029cce6d19fd6d472097ff06a800a1); ?>
 <?php endif; ?>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
-                            <?php if($header): ?>
+                            <!--[if BLOCK]><![endif]--><?php if($header): ?>
                                 <?php echo e($header); ?>
 
                             <?php else: ?>
-                                <?php if($hasIcon): ?>
+                                <!--[if BLOCK]><![endif]--><?php if($hasIcon): ?>
                                     <div
                                         class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                             'mb-5 flex items-center justify-center' => $alignment === Alignment::Center,
@@ -381,7 +381,7 @@ unset($__defined_vars); ?>
 <?php endif; ?>
                                         </div>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
                                 <div
                                     class="<?php echo \Illuminate\Support\Arr::toCssClasses([
@@ -417,7 +417,7 @@ unset($__defined_vars); ?>
 <?php unset($__componentOriginald7a9f81547afa3e8c64344ab5afc13c2); ?>
 <?php endif; ?>
 
-                                    <?php if($hasDescription): ?>
+                                    <!--[if BLOCK]><![endif]--><?php if($hasDescription): ?>
                                         <?php if (isset($component)) { $__componentOriginal97b96faab0e6cbb838ae7fea15042b0e = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal97b96faab0e6cbb838ae7fea15042b0e = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'filament::components.modal.description','data' => ['class' => 'mt-2']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -440,13 +440,13 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginal97b96faab0e6cbb838ae7fea15042b0e; ?>
 <?php unset($__componentOriginal97b96faab0e6cbb838ae7fea15042b0e); ?>
 <?php endif; ?>
-                                    <?php endif; ?>
+                                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                         </div>
-                    <?php endif; ?>
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
-                    <?php if($hasSlot): ?>
+                    <!--[if BLOCK]><![endif]--><?php if($hasSlot): ?>
                         <div
                             class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                 'fi-modal-content flex flex-col gap-y-4 py-6',
@@ -458,9 +458,9 @@ unset($__defined_vars); ?>
                             <?php echo e($slot); ?>
 
                         </div>
-                    <?php endif; ?>
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
 
-                    <?php if($hasFooter): ?>
+                    <!--[if BLOCK]><![endif]--><?php if($hasFooter): ?>
                         <div
                             class="<?php echo \Illuminate\Support\Arr::toCssClasses([
                                 'fi-modal-footer w-full',
@@ -473,7 +473,7 @@ unset($__defined_vars); ?>
                                 'mt-auto' => $slideOver,
                             ]); ?>"
                         >
-                            <?php if(! \Filament\Support\is_slot_empty($footer)): ?>
+                            <!--[if BLOCK]><![endif]--><?php if(! \Filament\Support\is_slot_empty($footer)): ?>
                                 <?php echo e($footer); ?>
 
                             <?php else: ?>
@@ -488,19 +488,19 @@ unset($__defined_vars); ?>
                                         },
                                     ]); ?>"
                                 >
-                                    <?php if(is_array($footerActions)): ?>
-                                        <?php $__currentLoopData = $footerActions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $action): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <!--[if BLOCK]><![endif]--><?php if(is_array($footerActions)): ?>
+                                        <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $footerActions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $action): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <?php echo e($action); ?>
 
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                                     <?php else: ?>
                                         <?php echo e($footerActions); ?>
 
-                                    <?php endif; ?>
+                                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                         </div>
-                    <?php endif; ?>
+                    <?php endif; ?><!--[if ENDBLOCK]><![endif]-->
                 </div>
             </div>
         </div>
