@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
-use App\Http\Resources\LoginResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\LoginResource;
 
 class AuthController extends Controller
 {
@@ -43,23 +44,23 @@ class AuthController extends Controller
         }
     }
 
-    //register
-    // public function register(RegisterRequest $request)
-    // {
-    //     //save user to user table
-    //     $user = User::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => Hash::make($request->password)
-    //     ]);
+    // register
+    public function register(RegisterRequest $request)
+    {
+        //save user to user table
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
 
-    //     $token = $user->createToken('token')->plainTextToken;
-    //     //return token
-    //     return new LoginResource([
-    //         'token' => $token,
-    //         'user' => $user
-    //     ]);
-    // }
+        $token = $user->createToken('token')->plainTextToken;
+        //return token
+        return new LoginResource([
+            'token' => $token,
+            'user' => $user
+        ]);
+    }
 
     //logout
     public function logout(Request $request)
