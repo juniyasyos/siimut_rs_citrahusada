@@ -101,10 +101,10 @@
         ],
         "octane": [
             "Composer\\Config::disableProcessTimeout",
-            "APP_ENV=production php artisan config:cache",
-            "APP_ENV=production php artisan route:cache",
+            "APP_ENV=ngrok php artisan config:cache",
+            "APP_ENV=ngrok php artisan route:cache",
             "npm run build",
-            "APP_ENV=production dotenv -e .env.production -- npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#34d399\" \"php artisan octane:start --host=0.0.0.0 --port=8080\" \"php artisan queue:work --tries=3 --timeout=90\" --names=octane,queue"
+            "APP_ENV=ngrok dotenv -e .env.ngrok -- npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#34d399\" \"php artisan octane:start --host=0.0.0.0 --port=8080\" \"php artisan queue:work --tries=3 --timeout=90\" --names=octane,queue"
         ]
     },
     "extra": {

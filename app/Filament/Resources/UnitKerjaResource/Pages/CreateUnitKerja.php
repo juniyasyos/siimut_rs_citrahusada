@@ -14,6 +14,6 @@ class CreateUnitKerja extends CreateRecord
     //customize redirect after create
     public function getRedirectUrl(): string
     {
-        return $this->getResource()::getUrl('index');
+        return $this->getResource()::getUrl('edit', ['record' => $this->record->id]);
     }
 }

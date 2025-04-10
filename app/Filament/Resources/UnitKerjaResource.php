@@ -8,11 +8,13 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use App\Models\UnitKerja;
 use Filament\Tables\Table;
+use App\Models\UserUnitKerja;
 use Filament\Resources\Resource;
 use Awcodes\TableRepeater\Header;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Repeater;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Illuminate\Database\Eloquent\Model;
@@ -26,8 +28,8 @@ use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Actions\ForceDeleteBulkAction;
 use App\Filament\Resources\UnitKerjaResource\Pages;
 use Awcodes\TableRepeater\Components\TableRepeater;
-use App\Filament\Resources\UnitKerjaResource\RelationManagers;
-use Filament\Forms\Components\{TextInput, Textarea, Repeater, Select, Grid};
+use Filament\Forms\Components\{TextInput, Textarea, Select, Grid};
+use App\Filament\Resources\UnitKerjaResource\RelationManagers\UsersRelationManager;
 
 class UnitKerjaResource extends Resource
 {
@@ -118,34 +120,33 @@ class UnitKerjaResource extends Resource
                         ]),
                     ]),
 
-                Section::make(__('indikator-mutu::content.form.users.title'))
-                    ->description(__('indikator-mutu::content.form.users.description'))
-                    ->schema([
-                        Card::make()->schema([
-                            TableRepeater::make('users')
-                                ->headers([
-                                    Header::make('name')->label(__('indikator-mutu::content.fields.users')),
-                                ])
-                                ->renderHeader(false)
-                                ->relationship('users')
-                                ->schema([
-                                    Select::make('user_id')
-                                        ->label(__('indikator-mutu::content.fields.user_id'))
-                                        ->placeholder(__('indikator-mutu::content.form.users.search_placeholder'))
-                                        ->options(
-                                            User::with('position')->get()
-                                                ->mapWithKeys(fn($user) => [$user->id => "{$user->name} - " . ($user->position->name ?? __('indikator-mutu::content.fields.position'))])
-                                                ->toArray()
-                                        )
-                                        ->searchable()
-                                        ->preload()
-                                        ->required(),
-                                ])
-                                ->addActionLabel(__('indikator-mutu::content.form.users.add_button'))
-                                ->columns(3)
-                                ->collapsed(),
-                        ]),
-                    ]),
+                // Section::make(__('indikator-mutu::content.form.users.title'))
+                //     ->description(__('indikator-mutu::content.form.users.description'))
+                //     ->schema(components: [
+                //         Card::make()->schema([
+                //             Repeater::make('user_unit_kerja')
+                //                 // ->headers([
+                //                 //     Header::make('name')->label(__('indikator-mutu::content.fields.users')),
+                //                 // ])
+                //                 // ->renderHeader(false)
+                //                 ->schema([
+                //                     Select::make('user_id')
+                //                         // ->label(__('indikator-mutu::content.fields.user_id'))
+                //                         // ->placeholder(__('indikator-mutu::content.form.users.search_placeholder'))
+                //                         ->options(
+                //                             User::with('position')->get()
+                //                                 ->mapWithKeys(fn($user) => [$user->id => "{$user->name} - " . ($user->position->name ?? __('indikator-mutu::content.fields.position'))])
+                //                                 ->toArray()
+                //                         )
+                //                         ->searchable()
+                //                         ->preload()
+                //                         ->required(),
+                //                 ])
+                //                 ->addActionLabel(__('indikator-mutu::content.form.users.add_button'))
+                //                 ->columns(3)
+                //                 ->collapsed(),
+                //         ]),
+                //     ]),
             ]);
     }
 
@@ -182,7 +183,9 @@ class UnitKerjaResource extends Resource
 
     public static function getRelations(): array
     {
-        return [];
+        return [
+            UsersRelationManager::class,
+        ];
     }
 
     public static function getPages(): array

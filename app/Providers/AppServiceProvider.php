@@ -60,6 +60,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'indikator-mutu');
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'filament-navigation');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'filament-actions');
 
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch

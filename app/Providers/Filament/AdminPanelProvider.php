@@ -129,7 +129,7 @@ class AdminPanelProvider extends PanelProvider
             BreezyCore::make()
                 ->myProfile(
                     shouldRegisterUserMenu: true,
-                    shouldRegisterNavigation: true,
+                    shouldRegisterNavigation: false,
                     navigationGroup: __('System & Configuration'),
                     hasAvatars: true,
                     slug: 'my-profile'

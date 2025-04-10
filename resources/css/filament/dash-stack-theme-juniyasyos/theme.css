@@ -66,7 +66,7 @@
 
                 .fi-global-search-field {
                     >.fi-input-wrp {
-                        @apply rounded-full bg-[#F5F6FA] dark:bg-[var(--ds-dark-bg-tertiary-color)];
+                        @apply rounded-full h-10 items-center bg-[#F5F6FA] dark:bg-[var(--ds-dark-bg-tertiary-color)];
 
                         >.fi-input-wrp-prefix {
                             >.fi-input-wrp-icon {
@@ -168,6 +168,11 @@
                     >.fi-sidebar-item {
                         @apply relative px-10 rtl:pr-14 rtl:pl-6;
 
+                        /* Hover effect */
+                        &:hover::after {
+                            @apply bg-primary-600;
+                        }
+
                         >.fi-sidebar-item-button {
                             @apply bg-white dark:bg-[var(--ds-dark-bg-secondary-color)];
                             @apply px-4 py-3 gap-x-6;
@@ -197,9 +202,15 @@
                     >.fi-sidebar-item::after {
                         content: '';
                         @apply absolute left-0 rtl:right-4 top-0 w-4 h-full rounded-lg;
+                        @apply bg-transparent;
+                        transition: background-color 0.3s ease;
                     }
 
                     >.fi-sidebar-item.fi-sidebar-item-active::after {
+                        @apply bg-primary-600;
+                    }
+
+                    >.fi-sidebar-item:hover::after {
                         @apply bg-primary-600;
                     }
                 }
@@ -210,6 +221,7 @@
             }
         }
     }
+
 }
 
 .fi-sidebar:not(.fi-sidebar-open) {

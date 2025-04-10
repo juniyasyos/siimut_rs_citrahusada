@@ -18,10 +18,14 @@
 <x-filament-widgets::widget class="fi-account-widget">
     <x-filament::section>
         <div class="flex items-start gap-x-4 p-4">
-            <x-filament-panels::avatar.user size="xl" :user="$user" />
+            {{-- <x-filament-panels::avatar.user size="xl" :user="$user" /> --}}
             <div class="flex-grow text-center md:text-left">
-                <p class="text-sm">{{ trans($user->position?->name ?? 'Tidak ada posisi') }}</p>
-                <h3 class="text-xl font-bold heading">{{ $user->name }}</h3>
+                <h3 class="text-xl font-bold heading">Welcome Back</h3>
+                {{-- <div class="flex space-x-2 items-center">
+                    <x-heroicon-m-calendar class="size-5" />
+                    <p class="text-sm">{{ \Carbon\Carbon::now()->format('F d, Y') }}</p>
+                </div> --}}
+                <p class="text-sm">{{ $user->name }}</p>
                 <div class="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300">
                     {{ trans($randomGreeting) }}
                 </div>

@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\UnitKerjaResource\Pages;
 
-use App\Filament\Resources\UnitKerjaResource;
 use Filament\Actions;
+use Filament\Actions\Action;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Resources\UnitKerjaResource;
 
 class EditUnitKerja extends EditRecord
 {
@@ -13,7 +14,22 @@ class EditUnitKerja extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Action::make('save')
+                ->label(__('filament-actions::edit.single.modal.actions.save.label'))
+                ->action('save')
+                ->requiresConfirmation(false),
+
+            Action::make('delete')
+                ->label(__('filament-actions::delete.single.modal.actions.delete.label'))
+                ->color('danger')
+                ->requiresConfirmation()
+                ->action('delete'),
         ];
+    }
+
+    protected function getFormActions(): array
+    {
+        return [];
     }
 
     //customize redirect after create

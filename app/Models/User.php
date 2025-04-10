@@ -79,7 +79,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
      *
      * @return BelongsToMany
      */
-    public function unitKerja(): BelongsToMany
+    public function unitKerjas(): BelongsToMany
     {
         return $this->belongsToMany(UnitKerja::class, 'user_unit_kerja', 'user_id', 'unit_kerja_id')
             ->withTimestamps();

@@ -37,7 +37,7 @@ return new class extends Migration {
             $table->text('inclusion_criteria')->nullable();
             $table->text('exclusion_criteria')->nullable();
             $table->string('data_source', 255)->nullable();
-            $table->string('data_collection_frequency', 255)->nullable();
+            $table->string( 'data_collection_frequency', 255)->nullable();
             $table->text('analysis_plan')->nullable();
             $table->text('data_collection_tool')->nullable();
             $table->string('responsible_person', 255)->nullable();
